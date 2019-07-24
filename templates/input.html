@@ -1,0 +1,41 @@
+Micro<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Input Car Data</title>
+  </head>
+  <body>
+    <h1>CarSpan</h1>
+    <div onchange="setPicture();" d="vehicle-img">
+      <img src=""
+    <div id="inputCar">
+    <!-- style="background-image:url( {{img_url}});"> -->
+      <form>
+      Your car's milage here:<br>
+      <input type="text" name = "Mileage"><br>
+      The year your car was manufactured here:<br>
+      <input type="integer" name = "Car Type"><br>
+      </form>
+
+      <form method="post" action="/CarResult">
+        <label for="carType">Your Car Type:</label>
+        <select name="carType">
+          <option value="../static/images/carImages/Micro">Micro</option>
+          <option value="Sedan">Sedan</option>
+          <option value="CUV">Aires</option>
+          <option value="SUV">SUV</option>
+          <option value="Hatchback">Hatchback</option>
+          <option value="Roadster">Roadster</option>
+          <option value="Pickup">Pickup</option>
+          <option value="Van">Van</option>
+          <option value="Coupe">Coupe</option>
+          <option value="Supercar">Supercar</option>
+          <option value="Campervan">Campervan</option>
+          <option value="Cabriolet">Cabriolet</option>
+          <option value="Minivan">Minivan</option>
+          <option value="Big Truck">Big Truck</option>
+        </select>
+      </form>
+    </div>
+   </body>
+</html>
