@@ -23,7 +23,6 @@ class EnterInfoHandler(webapp2.RequestHandler):
         input_template = the_jinja_env.get_template('templates/input.html')
         self.response.write(input_template.render())  # the response
     # def post(self):
-        self.response.write("Ooof")
 
 class ShowInfoHandler(webapp2.RequestHandler):
     def get(self):  # for a get request
@@ -52,6 +51,18 @@ class ShowInfoHandler(webapp2.RequestHandler):
                   </form>''')
 
 
+                the_variable_dict = {"carAge": Age,
+                                        "year": Year,}
+                # "img_url": pic_url
+                self.response.write(results_template.render(the_variable_dict))
+        except:
+            self.response.write('''
+                Please input an integer value!
+                <p> Click below to Calculate the Age of your Car! </p>
+                  <form method="post" action="/enter-info">
+                    <input type="submit" value="Go!">
+                    </input>
+                  </form>''')
 # #
 # TestFunction()
 #
