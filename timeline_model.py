@@ -1,7 +1,7 @@
 from google.appengine.ext import ndb
 
 class timeline_data(ndb.Model):
-    carAge =  ndb.FloatProperty(required=True)
+    carAge =  ndb.StringProperty(required=True)
     email =  ndb.StringProperty(required=True)
     year =  ndb.StringProperty(required=True)
     make =  ndb.StringProperty(required=True)
