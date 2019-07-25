@@ -10,11 +10,16 @@
     <div id="inputCar">
       <img id = "currentImage" src="../static/images/carImages/outline.png">
       <form method="post" action="/show-info">
-      Your car's milage here:<br>
-      <input id = "Mileage" type="float" name = "Mileage"><br>
       The year your car was manufactured here:<br>
       <input id ="Year" type="integer" name = "Year"><br>
-        <label for="carType">Your Car Type:<br></label>
+      The make of your car here:<br>
+      <input id ="Make" type="text" name = "Make"><br>
+      The model of your car here:<br>
+      <input id ="Model" type="text" name = "Model"><br>
+      The milage of your car here:<br>
+      <input id = "Mileage" type="float" name = "Mileage"><br>
+
+        <label for="carType">The class of your car here:<br></label>
         <select id="carType" onchange="setPicture();" name="carType">
           <option value="../static/images/carImages/outline.png">Select a Car</option>
           <option value="../static/images/carImages/micro.jpg">Micro</option>
