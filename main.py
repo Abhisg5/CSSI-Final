@@ -38,7 +38,13 @@ class MainHandler(webapp2.RequestHandler):
       if cssi_user:
         # Greet them with their personal information
         self.response.write('''
-            Welcome %s %s (%s)! <br> %s <br>''' % (
+            Welcome %s %s (%s)! <br> %s <br>
+                  <p> Click below to Calculate the Age of your Car! </p>
+                    <form method="post" action="/enter-info">
+                      <input type="submit" value="Go!">
+                      </input>
+                    </form>
+                    ''' % (
               cssi_user.first_name,
               cssi_user.last_name,
               email_address,
@@ -88,7 +94,7 @@ class MainHandler(webapp2.RequestHandler):
         last_name=self.request.get('last_name'),
         email=user.nickname())
     cssi_user.put()
-    self.response.write('Thanks for signing up, %s! <br><a href="/">Home</a>' %
+    self.response.write('Thanks for signing up, %s! <br><a href="/enter-info">Calculate Your Car Age!</a>' %
         cssi_user.first_name)
 
 app = webapp2.WSGIApplication([
