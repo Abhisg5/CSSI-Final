@@ -18,7 +18,6 @@ class EnterInfoHandler(webapp2.RequestHandler):
         input_template = the_jinja_env.get_template('templates/input.html')
         self.response.write(input_template.render())  # the response
     # def post(self):
-        self.response.write("Ooof")
 
 class ShowInfoHandler(webapp2.RequestHandler):
     def get(self):  # for a get request
@@ -26,18 +25,25 @@ class ShowInfoHandler(webapp2.RequestHandler):
         self.response.write(welcome_template.render())
     def post(self):
         results_template = the_jinja_env.get_template('templates/output.html')
-        Age = (float(self.request.get("Mileage"))/200000)*80.3
-        # FIND A WAY TO DISPLAY AS YEARS/MONTHS/DAYS/HOURS/MINUTES/SECONDS
+        try:
+            if float(self.request.get("Mileage")).is_integer() is True:
+                Age = (float(self.request.get("Mileage"))/200000)*80.3
+                # FIND A WAY TO DISPLAY AS YEARS/MONTHS/DAYS/HOURS/MINUTES/SECONDS
+                Year = self.request.get("Year")
+                # pic_url = get_meme_url(meme_img_choice)
 
-        Year = self.request.get("Year")
-        # pic_url = get_meme_url(meme_img_choice)
-
-        the_variable_dict = {"carAge": Age,
-                                "year": Year,}
-                             # "img_url": pic_url
-        self.response.write(results_template.render(the_variable_dict))
-
-
+                the_variable_dict = {"carAge": Age,
+                                        "year": Year,}
+                # "img_url": pic_url
+                self.response.write(results_template.render(the_variable_dict))
+        except:
+            self.response.write('''
+                Please input an integer value!
+                <p> Click below to Calculate the Age of your Car! </p>
+                  <form method="post" action="/enter-info">
+                    <input type="submit" value="Go!">
+                    </input>
+                  </form>''')
 # #
 # TestFunction()
 #
