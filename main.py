@@ -9,7 +9,7 @@ import logging
 
 from timeline import inputTimeline, displayTimeline
 from timeline_model import timeline_data
-from input import EnterInfoHandler, ShowInfoHandler
+# from input import EnterInfoHandler, ShowInfoHandler
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
@@ -91,10 +91,9 @@ class MainHandler(webapp2.RequestHandler):
         cssi_user.first_name)
 
 app = webapp2.WSGIApplication([
-  ('/', MainHandler,
-  "/input-timeline", inputTimeline,
-  "/display", displayTimeline,
-  "/enter-info", EnterInfoHandler,
-  "/show-info", ShowInfoHandler
-  )
+  ('/', MainHandler),
+  ("/input-timeline", inputTimeline),
+  ("/display", displayTimeline),
+  # "/enter-info", EnterInfoHandler,
+  # "/show-info", ShowInfoHandler
 ], debug=True)

@@ -1,40 +1,37 @@
-Micro<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="../static/js/index.js"></script>
     <title>Input Car Data</title>
   </head>
   <body>
-    <h1>CarSpan</h1>
-    <div onchange="setPicture();" d="vehicle-img">
-      <img src=""
+    <h1>Calculate Your CarSpan</h1>
     <div id="inputCar">
-    <!-- style="background-image:url( {{img_url}});"> -->
-      <form>
+      <img id = "currentImage" src="../static/images/carImages/outline.png">
+      <form method="post" action="/carResult">
       Your car's milage here:<br>
-      <input type="text" name = "Mileage"><br>
+      <input id = "Mileage" type="float" name = "Mileage"><br>
       The year your car was manufactured here:<br>
-      <input type="integer" name = "Car Type"><br>
-      </form>
-
-      <form method="post" action="/CarResult">
-        <label for="carType">Your Car Type:</label>
-        <select name="carType">
-          <option value="../static/images/carImages/Micro">Micro</option>
-          <option value="Sedan">Sedan</option>
-          <option value="CUV">Aires</option>
-          <option value="SUV">SUV</option>
-          <option value="Hatchback">Hatchback</option>
-          <option value="Roadster">Roadster</option>
-          <option value="Pickup">Pickup</option>
-          <option value="Van">Van</option>
-          <option value="Coupe">Coupe</option>
-          <option value="Supercar">Supercar</option>
-          <option value="Campervan">Campervan</option>
-          <option value="Cabriolet">Cabriolet</option>
-          <option value="Minivan">Minivan</option>
-          <option value="Big Truck">Big Truck</option>
+      <input id ="Year" type="integer" name = "Year"><br>
+        <label for="carType">Your Car Type:<br></label>
+        <select id="carType" onchange="setPicture();" name="carType">
+          <option value="../static/images/carImages/outline.png">Select a Car</option>
+          <option value="../static/images/carImages/micro.jpg">Micro</option>
+          <option value="../static/images/carImages/sedan.jpg">Sedan</option>
+          <option value="../static/images/carImages/cuv.jpg">CUV</option>
+          <option value="../static/images/carImages/suv.jpg">SUV</option>
+          <option value="../static/images/carImages/hatchback.jpg">Hatchback</option>
+          <option value="../static/images/carImages/roadster.jpg">Roadster</option>
+          <option value="../static/images/carImages/pickup.jpg">Pickup</option>
+          <option value="../static/images/carImages/van.jpg">Van</option>
+          <option value="../static/images/carImages/coupe.jpg">Coupe</option>
+          <option value="../static/images/carImages/supercar.jpg">Supercar</option>
+          <option value="../static/images/carImages/cabriolet.jpg">Cabriolet</option>
+          <option value="../static/images/carImages/minivan.jpg">Minivan</option>
         </select>
+        <input type="submit" value="Go!">
+        </input>
       </form>
     </div>
    </body>

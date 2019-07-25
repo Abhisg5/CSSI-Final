@@ -11,7 +11,7 @@ jinja_env = jinja2.Environment(
 
 class inputTimeline(webapp2.RequestHandler):
   def get(self):
-      timeline_template = jinja_env.get_template("inputTimeline.html")
+      timeline_template = jinja_env.get_template("templates/inputTimeline.html")
       self.response.write(timeline_template.render())
 
 
@@ -19,7 +19,7 @@ class inputTimeline(webapp2.RequestHandler):
 
 class displayTimeline(webapp2.RequestHandler):
     def get(self):
-        the_carage = self.request.get("carage")
+        the_carage = float(self.request.get("carage"))
         the_year = self.request.get("year")
         the_make = self.request.get("Make")
         the_model = self.request.get("Model")
@@ -33,6 +33,13 @@ class displayTimeline(webapp2.RequestHandler):
         the_make = self.request.get("Make")
         the_model = self.request.get("Model")
         timeline_input = timeline_data(carAge= the_carage,email="google@google.com", year = the_year, make = the_make, model = the_model).put()
-        timeline_entity_list = timeline_data.query().fetch()
-        timeline_template = jinja_env.get_template("timeline.html")
+        timeline_entity_list = timeline_data.query().order(timeline_data.carAge).fetch()
+        timeline_template = jinja_env.get_template("templates/timeline.html")
         self.response.write(timeline_template.render({'timeline_info' : timeline_entity_list}))
+
+
+
+# app = webapp2.WSGIApplication([
+#     ('/', inputTimeline),
+#     ('/carResult', displayTimeline),
+# ], debug=True)
