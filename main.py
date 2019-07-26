@@ -31,6 +31,7 @@ class MainHandler(webapp2.RequestHandler):
     # If the user is logged in...
     if user:
       signout_link_html = users.create_logout_url('/')
+      signout_link_htmll = '<a href="%s"> Sign Out</a>' %(users.create_logout_url('/'))
       email_address = user.nickname()
       cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
       # If the user is registered...
@@ -49,8 +50,11 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write('''
             <head>
                 <link rel="stylesheet" type="text/css" href="../static/autoSpanregistration.css">
+                <link rel="stylesheet" type="text/css" href="../static/autoSpanhome.css">
                 <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
             </head>
+
+            <body>
             <p><h1 id=welcoming> Welcome to our site, %s!  To proceed register below:</h1> </p> <br>
             <img src="https://i.imgur.com/PvZ4Tsh.gif" alt="car placeholder" id=regPlaceholder>
 
@@ -63,7 +67,8 @@ class MainHandler(webapp2.RequestHandler):
 
             </ul>
             <br> <h1 id=signoutButton> %s </h1> <br>
-            ''' % (email_address, signout_link_html))
+            </body>
+            ''' % (email_address, signout_link_htmll))
 
 
 
