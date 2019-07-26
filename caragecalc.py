@@ -22,7 +22,6 @@ class EnterInfoHandler(webapp2.RequestHandler):
         input_template = the_jinja_env.get_template('templates/input.html')
         self.response.write(input_template.render())  # the response
     # def post(self):
-        self.response.write("Ooof")
     def post(self):  # for a get request
         input_template = the_jinja_env.get_template('templates/input.html')
         self.response.write(input_template.render())  # the response
