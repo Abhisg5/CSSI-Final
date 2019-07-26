@@ -32,8 +32,9 @@ class displayTimeline(webapp2.RequestHandler):
         the_year = self.request.get("year")
         the_make = self.request.get("Make")
         the_model = self.request.get("Model")
-        timeline_input = timeline_data(carAge= the_carage,email="google@google.com", year = the_year, make = the_make, model = the_model).put()
-        timeline_input.put()
+        timeline_input = timeline_data(carAge= the_carage,email="google@google.com", year = the_year, make = the_make, model = the_model)
+        timelinedata = timeline_input.put()
+
 
     def post(self):
         the_carage = self.request.get("carage")
@@ -46,9 +47,11 @@ class displayTimeline(webapp2.RequestHandler):
 
 
 
-        timeline_input = timeline_data(carAge= the_carage, email="google@google.com", year = the_year, make = the_make, model = the_model).put()
+        timeline_input = timeline_data(carAge= the_carage, email="google@google.com", year = the_year, make = the_make, model = the_model)
+        timelinedata = timeline_input.put()
         timeline_entity_list = timeline_data.query().order(timeline_data.carAge).fetch()
-
+        new_entity = timelinedata.get()
+        timeline_entity_list.append(new_entity)
         cssi_dictionary = {
         "signout_link_html": signout_link_html,
         'timeline_info' : timeline_entity_list,
