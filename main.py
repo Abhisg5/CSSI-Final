@@ -30,25 +30,19 @@ class MainHandler(webapp2.RequestHandler):
     user = users.get_current_user()
     # If the user is logged in...
     if user:
-      signout_link_html = '<a href="%s">SIGN OUT</a>' % (
-          users.create_logout_url('/'))
+      signout_link_html = users.create_logout_url('/')
       email_address = user.nickname()
       cssi_user = CssiUser.query().filter(CssiUser.email == email_address).get()
       # If the user is registered...
       if cssi_user:
         # Greet them with their personal information
-        self.response.write('''
-            Welcome %s %s (%s)! <br> %s <br>
-                  <p> Click below to Calculate the Age of your Car! </p>
-                    <form method="post" action="/enter-info">
-                      <input type="submit" value="Go!">
-                      </input>
-                    </form>
-                    ''' % (
-              cssi_user.first_name,
-              cssi_user.last_name,
-              email_address,
-              signout_link_html))
+        cssi_dictionary = {
+          "signout_link_html": signout_link_html,
+        };
+        cssi_template = the_jinja_env.get_template("templates/autoSpanhome.html")
+        self.response.write(cssi_template.render(cssi_dictionary));
+
+
       # If the user isn't registered...
       else:
         # Offer a registration form for a first-time visitor:

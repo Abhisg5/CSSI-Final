@@ -18,6 +18,11 @@ def GetProcedure(description, data):
             return procedure["desc"], procedure["repair"]["repair_hours"], procedure["repair"]["total_cost"], procedure["repair"]["repair_difficulty"]
 
 class EnterInfoHandler(webapp2.RequestHandler):
+    def get(self):  # for a get request
+        input_template = the_jinja_env.get_template('templates/input.html')
+        self.response.write(input_template.render())  # the response
+    # def post(self):
+        self.response.write("Ooof")
     def post(self):  # for a get request
         input_template = the_jinja_env.get_template('templates/input.html')
         self.response.write(input_template.render())  # the response
@@ -72,13 +77,12 @@ class ShowInfoHandler(webapp2.RequestHandler):
                     <input type="submit" value="Go!">
                     </input>
                   </form>''')
-# #
 # TestFunction()
 #
-app = webapp2.WSGIApplication([
-    ('/EnterInfo', EnterInfoHandler),
-    ('/carResult', ShowInfoHandler),
-], debug="true")
+# app = webapp2.WSGIApplication([
+#     ('/EnterInfo', EnterInfoHandler),
+#     ('/carResult', ShowInfoHandler),
+# ], debug="true")
 
 #
 # # buried code:
