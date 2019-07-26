@@ -4,6 +4,9 @@ from google.appengine.api import urlfetch
 import json
 import jinja2
 import os
+
+from google.appengine.api import users
+from google.appengine.ext import ndb
 # from api import CarmdApi
 # api = CarmdApi()
 
@@ -19,12 +22,24 @@ def GetProcedure(description, data):
 
 class EnterInfoHandler(webapp2.RequestHandler):
     def get(self):  # for a get request
+        user = users.get_current_user()
+        signout_link_html = users.create_logout_url('/')
+
+        cssi_dictionary = {
+          "signout_link_html": signout_link_html,
+        };
         input_template = the_jinja_env.get_template('templates/input.html')
-        self.response.write(input_template.render())  # the response
+        self.response.write(input_template.render(cssi_dictionary))  # the response
     # def post(self):
     def post(self):  # for a get request
+        user = users.get_current_user()
+        signout_link_html = users.create_logout_url('/')
+
+        cssi_dictionary = {
+          "signout_link_html": signout_link_html,
+        };
         input_template = the_jinja_env.get_template('templates/input.html')
-        self.response.write(input_template.render())  # the response
+        self.response.write(input_template.render(cssi_dictionary))  # the response
     # def post(self):
 
 class ShowInfoHandler(webapp2.RequestHandler):
