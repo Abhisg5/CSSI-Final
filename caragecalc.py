@@ -60,12 +60,7 @@ class ShowInfoHandler(webapp2.RequestHandler):
             if int(Year) < 1996:
                 self.response.write("Please enter a year after 1994.")
                 return
-            if isinstance(Make, basestring) == True
-                self.response.write("Please enter a valid Make within the scope of Car MD.")
-                return
-            if isinstance(Model, basestring) == True
-                self.response.write("Please enter a valid Model within the scope of Car MD.")
-                return
+            
             if int(Mileage) < 1996:
                 self.response.write("Please input an integer value for mileage.")
                 return
