@@ -40,8 +40,8 @@
         {%for item in datalist%}
         <tr>
           <td>{{item.desc}}</td>
-          <td>{{item.repair.repair_hours}}</td>
-          <td>{{item.repair.total_cost}}</td>
+          <td>{{item.repair.repair_hours}} hours</td>
+          <td>${{item.repair.total_cost}}</td>
           <td>{{item.repair.repair_difficulty}}/6</td>
         {%endfor%}
 
@@ -51,21 +51,14 @@
         <button id="button2" type="button"><a href="/">Share with Others through our Timeline Feature</a></button>
 
       <p id="poweredBy"> Powered by: <a href="https://www.carmd.com/"> CarMD</a>.</p>
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> 6e7f4fa2f62f0691dedf72fe0f4241b96a089a43
   </body>
 </html>
 
 
 <!-- <form method="post" action="/carResult">
-<<<<<<< HEAD
-
-=======
->>>>>>> bf3fe1cff18b815daef891a17cda58a5de7474b4
 The year your car was manufactured here:<br>
 <input id ="Year" type="integer" name = "Year"><br>
 The make of your car here:<br>
@@ -74,10 +67,6 @@ The model of your car here:<br>
 <input id ="Model" type="text" name = "Model"><br>
 The milage of your car here:<br>
 <input id = "Mileage" type="float" name = "Mileage"><br>
-<<<<<<< HEAD
-
-=======
->>>>>>> bf3fe1cff18b815daef891a17cda58a5de7474b4
   <label for="carType">The class of your car here:<br></label>
   <select id="carType" onchange="setPicture();" name="carType">
     <option value="../static/images/carImages/outline.png">Select a Car</option>

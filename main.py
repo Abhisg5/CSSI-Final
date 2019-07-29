@@ -96,8 +96,7 @@ class MainHandler(webapp2.RequestHandler):
         last_name=self.request.get('last_name'),
         email=user.nickname())
     cssi_user.put()
-    self.response.write('Thanks for signing up, %s! <br><a href="/">Check out our Page!</a>' %
-        cssi_user.first_name)
+    self.response.write("templates/autoSpanhome.html")
 
 app = webapp2.WSGIApplication([
   ('/', MainHandler),
