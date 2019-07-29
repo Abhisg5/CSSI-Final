@@ -37,27 +37,13 @@
           <th> Total Cost</th>
           <th>Difficulty Level</th>
         </tr>
-
+        {%for item in datalist%}
         <tr>
-          <td>{{desc1}}</td>
-          <td>{{time1}}</td>
-          <td>{{cost1}}</td>
-          <td> {{difficulty1}}/6</td>
-        </tr>
-
-        <tr>
-          <td>{{desc2}}</td>
-          <td> {{time2}}</td>
-          <td>{{cost2}} </td>
-          <td> {{difficulty2}}/6 </td>
-        </tr>
-
-        <tr>
-          <td> {{desc3}} </td>
-          <td> {{time3}} </td>
-          <td> {{cost3}}</td>
-          <td> {{difficulty3}}/6</td>
-        </tr>
+          <td>{{item.desc}}</td>
+          <td>{{item.repair.repair_hours}}</td>
+          <td>{{item.repair.total_cost}}</td>
+          <td>{{item.repair.repair_difficulty}}/6</td>
+        {%endfor%}
 
       </table>
       <!-- CLARIFY THAT THIS INFORMATION IS FOR THE CAR AT THE CURRENT MILEAGE, disclaim, if 0, then uncommon to need at current mileage-->
@@ -65,36 +51,9 @@
         <button id="button2" type="button"><a href="/">Share with Others through our Timeline Feature</a></button>
 
       <p id="poweredBy"> Powered by: <a href="https://www.carmd.com/"> CarMD</a>.</p>
-=======
-  </head>
-  <body>
-    <h1> The TRUE age of your car is {{carAge}} years! <h1>
-      <p> This value was meticulously calculated through a mathematical comparison of the human lifespan with the average car's maximum milage.</p>
-      <!-- <img src= "{{img_url}}" width= "300px" height= "300px"> -->
-      <!-- <h2> Year: {{year}} <h2>
-      <p> {{info}} </p> -->
-      <!-- CLARIFY THAT THIS INFORMATION IS FOR THE CAR AT THE CURRENT MILEAGE, disclaim, if 0, then uncommon to need at current mileage-->
-      <p> {{desc1}} </p>
-      <p> {{time1}} </p>
-      <p> {{cost1}} </p>
-      <p> {{difficulty1}}/6 </p>
 
-      <p> {{desc2}} </p>
-      <p> {{time2}} </p>
-      <p> {{cost2}} </p>
-      <p> {{difficulty2}}/6 </p>
 
-      <p> {{desc3}} </p>
-      <p> {{time3}} </p>
-      <p> {{cost3}} </p>
-      <p> {{difficulty3}}/6 </p>
 
-      <!-- <p> Click below to find future repair information for your car! </p>
-        <form method="post" action="/carRepairs">
-          <input type="submit" value="Go!">
-          </input>
-        </form> -->
->>>>>>> bf3fe1cff18b815daef891a17cda58a5de7474b4
   </body>
 </html>
 
