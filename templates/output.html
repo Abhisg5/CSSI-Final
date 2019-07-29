@@ -37,27 +37,13 @@
           <th> Total Cost</th>
           <th>Difficulty Level</th>
         </tr>
-
+        {%for item in datalist%}
         <tr>
-          <td>{{desc1}}</td>
-          <td>{{time1}}</td>
-          <td>{{cost1}}</td>
-          <td> {{difficulty1}}/6</td>
-        </tr>
-
-        <tr>
-          <td>{{desc2}}</td>
-          <td> {{time2}}</td>
-          <td>{{cost2}} </td>
-          <td> {{difficulty2}}/6 </td>
-        </tr>
-
-        <tr>
-          <td> {{desc3}} </td>
-          <td> {{time3}} </td>
-          <td> {{cost3}}</td>
-          <td> {{difficulty3}}/6</td>
-        </tr>
+          <td>{{item.desc}}</td>
+          <td>{{item.repair.repair_hours}}</td>
+          <td>{{item.repair.total_cost}}</td>
+          <td>{{item.repair.repair_difficulty}}/6</td>
+        {%endfor%}
 
       </table>
       <!-- CLARIFY THAT THIS INFORMATION IS FOR THE CAR AT THE CURRENT MILEAGE, disclaim, if 0, then uncommon to need at current mileage-->
@@ -65,6 +51,12 @@
         <button id="button2" type="button"><a href="/">Share with Others through our Timeline Feature</a></button>
 
       <p id="poweredBy"> Powered by: <a href="https://www.carmd.com/"> CarMD</a>.</p>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 6e7f4fa2f62f0691dedf72fe0f4241b96a089a43
   </body>
 </html>
 

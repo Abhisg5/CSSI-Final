@@ -1,6 +1,6 @@
 # CSSI-Final
 # Problem Statement
-# Dog years measure the lifespans of our beloved canine companions. But what do we use to measure the life expectancy of our precious automobiles? We will build an app/website that calculates the “true” age of a car. 
+# Dog years measure the lifespans of our beloved canine companions. But what do we use to measure the life expectancy of our precious automobiles? We will build an app/website that calculates the “true” age of a car.
 # Functional Requirements
 # P0: Users can determine their ‘car’s age’ by inputting relevant spec.information: current car mileage, type of vehicle, driving habits (average miles/week), and manufacturing year and gives users recommendations for maintenance based on calculated ‘car age’.
 # P1: Display user-submitted recommendations for maintenance based on ‘car age’ and expected car age.
@@ -13,7 +13,7 @@
 
 # Login Page
 
-# Car Input Page 
+# Car Input Page
 
 # Timeline Page
 
@@ -77,8 +77,3 @@
 # Project Timeline for Our Reference
 # P0 and P1- Wednesday, July 24th, 2019
 # → Login and Car Input Page Functioning by Tuesday at the latest
-
-
-
-
-

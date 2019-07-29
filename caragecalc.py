@@ -50,6 +50,7 @@ class ShowInfoHandler(webapp2.RequestHandler):
         self.response.write(welcome_template.render())
     def post(self):
         results_template = the_jinja_env.get_template('templates/output.html')
+<<<<<<< HEAD
         # try:
         if float(self.request.get("Mileage")).is_integer() is True:
             Age = (float(self.request.get("Mileage"))/200000)*80.3
@@ -107,6 +108,44 @@ class ShowInfoHandler(webapp2.RequestHandler):
             # "img_url": pic_url
             self.response.write(results_template.render(the_variable_dict))
         # except:
+=======
+        try:
+            if float(self.request.get("Mileage")).is_integer() is True:
+                Age = (float(self.request.get("Mileage"))/200000)*80.3
+
+                Year = self.request.get("Year")
+                Make = self.request.get("Make")
+                Model = self.request.get("Model")
+                Mileage = self.request.get("Mileage")
+
+                if int(Year) < 1996:
+                    self.response.write("Please enter a year after 1994.")
+                    return
+
+                first_key = key_data.query().get()
+
+
+                API = "http://api.carmd.com/v3.0/maint?year=%s&make=%s&model=%s&mileage=%s" %(Year, Make, Model, Mileage)
+                header = {"content-type":"application/json",
+                            "authorization":first_key.authKey,
+                            "partner-token":first_key.parTok}
+                print header
+                print API
+                response = urlfetch.fetch(url=API, headers=header).content
+                json_response = json.loads(response)
+                datalist =[
+                    item for item in json_response["data"]
+                    if item["repair"]["repair_hours"] != 0.00 or item["repair"]["total_cost"] != 0.00 or item["repair"]["repair_difficulty"] != 0
+                ]
+
+                the_variable_dict = {
+                                    "carAge": Age,
+                                    "datalist": datalist,
+                                    }
+
+                self.response.write(results_template.render(the_variable_dict))
+        except:
+>>>>>>> 6e7f4fa2f62f0691dedf72fe0f4241b96a089a43
             self.response.write('''
                 Please input an integer value!
                 <p> Click below to Calculate the Age of your Car! </p>
