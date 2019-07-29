@@ -78,7 +78,7 @@ class ShowInfoHandler(webapp2.RequestHandler):
                         "partner-token":key_data.authKey}
             response = urlfetch.fetch(url=API, headers=header).content
             json_response = json.loads(response)
-
+            print json_response
             desc1, brake_time, brake_cost, brake_difficulty = GetProcedure("Inspect Brake System, Friction Material & Hydraulic System", json_response["data"])
             desc2, rotate_time, rotate_cost, rotate_difficulty = GetProcedure("Rotate Tires, Inspect Tire Wear, & Adjust Tire Pressure", json_response["data"])
             desc3, fluid_time, fluid_cost, fluid_difficulty = GetProcedure("Inspect All Fluids and Correct Level", json_response["data"])
