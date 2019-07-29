@@ -48,26 +48,29 @@ class MainHandler(webapp2.RequestHandler):
       else:
         # Offer a registration form for a first-time visitor:
         self.response.write('''
-            <head>
+                <head>
                 <link rel="stylesheet" type="text/css" href="../static/autoSpanregistration.css">
-                <link rel="stylesheet" type="text/css" href="../static/autoSpanhome.css">
                 <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
             </head>
 
             <body>
-            <p><h1 id=welcoming> Welcome to our site, %s!  To proceed register below:</h1> </p> <br>
-            <img src="https://i.imgur.com/PvZ4Tsh.gif" alt="car placeholder" id=regPlaceholder>
 
-            <ul>
-                <form method="post" action="/" class="registrationForm">
-                <li><input type="text" name="first_name" value="First Name"> </li>
-                <li><input type="text" name="last_name" value="Last Name"> </li>
-                <li><h1 id=submitButton><input type="submit"></h1></li>
-                </form>
 
-            </ul>
-            <br> <h1 id=signoutButton> %s </h1> <br>
+            <img src="https://i.imgur.com/Oooxo1B.png" alt="car placeholder" id=regPlaceholder>
+            <div id="registerBox">
+            <p><h1 id=welcoming> Welcome to VroomIQ , %s. It appears you are not already registered for our site. If you would like to continue, please fill out the form found below.</h1> </p> <br>
+                <ul>
+                    <form method="post" action="/" class="registrationForm">
+                    <li><input type="text" name="first_name" value="First Name"> </li>
+                    <li><input type="text" name="last_name" value="Last Name"> </li>
+                    <li><h1 id=submitButton><input type="submit"></h1></li>
+                    </form>
+
+                </ul>
+                <br> <h1 id=signoutButton> %s </h1> <br>
+            </div>
             </body>
+
             ''' % (email_address, signout_link_htmll))
 
 
