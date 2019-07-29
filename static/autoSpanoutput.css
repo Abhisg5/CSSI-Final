@@ -67,14 +67,14 @@ body{
 
 #button1{
   position: absolute;
-  top: 90%;
+  top: 105%;
   left:50%;
   transform: translate(-50%,-50%);
 
 }
 #button2{
   position: absolute;
-  top: 85%;
+  top: 100%;
   left:50%;
   transform: translate(-50%,-50%);
 }
