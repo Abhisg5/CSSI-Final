@@ -74,8 +74,8 @@ class ShowInfoHandler(webapp2.RequestHandler):
             key_data.query().get()
             API = "http://api.carmd.com/v3.0/maint?year=%s&make=%s&model=%s&mileage=%s" %(Year, Make, Model, Mileage)
             header = {"content-type":"application/json",
-                        "authorization":key_data.parTok,
-                        "partner-token":key_data.authKey}
+                        "authorization":key_data.authKey,
+                        "partner-token":key_data.parTok}
             response = urlfetch.fetch(url=API, headers=header).content
             json_response = json.loads(response)
             print json_response
